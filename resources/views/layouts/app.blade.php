@@ -8,6 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Sign In| TailAdmin - Tailwind CSS Admin Dashboard Template</title>
     <link href="{{ asset('tailadmin/build/style.css') }}" rel="stylesheet">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     @livewireStyles
 </head>
 
@@ -17,11 +19,9 @@
          darkMode = JSON.parse(localStorage.getItem('darkMode'));
          $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
     :class="{'dark bg-gray-900': darkMode === true}">
-    <!-- ===== Preloader Start ===== -->
     @include('admin.partials.preloader')
-    <!-- ===== Preloader End ===== -->
-    {{ $slot }}
-
+    @include('components.header')
+    @yield('content')
     @livewireScripts
 </body>
 

@@ -19,13 +19,13 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->string('key_code')->nullable();
-            $table->unsignedBigInteger('company_id');
-            $table->string('nick_name');
+            $table->unsignedBigInteger('company_id')->nullable();
+            $table->string('nick_name')->default('user');
             $table->string('phone')->nullable();
             $table->enum('device_type', ['Android', 'iOS']);
-            $table->string('fcm_token');
+            $table->string('fcm_token')->nullable();
             $table->boolean('isAdmin')->default(0);
-            $table->dateTime('created_time');
+            $table->dateTime('created_time')->default(now());
             $table->dateTime('last_login')->nullable();
             $table->boolean('isActive')->default(1);
             $table->boolean('isDeleted')->default(0);
