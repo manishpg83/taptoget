@@ -21,7 +21,7 @@
     :class="{'dark bg-gray-900': darkMode === true}">
     @include('admin.partials.preloader')
     @include('components.header')
-    @yield('content')
+    {{$slot}}
     @livewireScripts
 </body>
 
